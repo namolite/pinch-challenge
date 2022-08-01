@@ -1,4 +1,4 @@
-# pinch-hallenge
+# pinch-challenge
 
 简体中文 | 没有啦~
 
