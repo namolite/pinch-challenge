@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import urllib3
+import time
 import json
 import os
 
@@ -87,7 +88,7 @@ def replace_use_a_dict(ct, dic):
 
 def add_info(text, used_map):
     if used_map == 'md':
-        ex = '# ' + pb_info['twn'] + '\n' + pb_info['di'] + '   acc: ' + pb_info['acc'] + '   tags: ' + pb_info['tag'] + '\nurl: ' + pb_info['url'] + '\n' + text
+        ex = '# ' + pb_info['twn'] + '\n' + pb_info['di'] + '   acc: ' + pb_info['acc'] + '   tags: ' + pb_info['tag'] + '\nurl: ' + pb_info['url'] + '\n\n\n\n\n' + text
     else:
         ex = pb_info['twn'] + '\n' + pb_info['di'] + '   acc: ' + pb_info['acc'] + '\ntags: ' + pb_info['tag'] + text + pb_info['url']
     return ex
@@ -105,6 +106,13 @@ def md_file(dir_path, pb_dir, title, text):
 
 # TODO main
 if __name__ == '__main__':
+    time_s = time.time()
+    print('Preparation for request.')
+    print('Obtain question information... ', end='')
     pb_info = p(fetch_problem())
+    print('complete.')
     md_text = add_info(replace_use_a_dict(pb_info['dtl'], md_map), 'md')
+    # txt_text = add_info(replace_use_a_dict(pb_info['dtl'], txt_map), '')
     md_file('problems', pb_info['dt'], pb_info['tt'], md_text)
+    time_e = time.time()
+    print('Congrat! ' + pb_info['tt'] + ' has fetched, consumed ' + str(round(time_e - time_s, 2)) + 's')
