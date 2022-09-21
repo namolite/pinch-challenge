@@ -20,6 +20,12 @@
 
 <br />
 
+## 依赖
+
+本项目使用了开源依赖库 [urllib3](https://urllib3.readthedocs.io/en/stable/index.html)。
+
+<br />
+
 ## 食用方法
 
 安装 [python](https://www.python.org/)，把 [Leetcode_daily.py](https://github.com/namolite/pinch-challenge/blob/main/Leetcode_daily.py) 放到想要的地方，然后命令它动起来！
